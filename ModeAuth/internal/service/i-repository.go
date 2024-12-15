@@ -11,3 +11,12 @@ type IAuthRepository interface {
 	UnBlockUser(ctx context.Context, userID string) error
 	ChangeUserName(ctx context.Context, user *dto.User) error
 }
+
+type IStateRepository interface {
+	WorkState(ctx context.Context, userID string) error
+	SendingState(ctx context.Context, userID string) error
+	DeleteSendingState(ctx context.Context, userID string) error
+	CheckingState(ctx context.Context, userID string) error
+	GetReport(ctx context.Context, userID string) (*dto.Report, error)
+	CheckState(ctx context.Context, userID string) (*dto.UserState, error)
+}
